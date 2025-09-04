@@ -1,129 +1,149 @@
-# Turkey Social Media Sentiment Analysis Platform
+Türkiye Sosyal Medya Duygu Analiz Platformu
+Türkiye illerine yönelik, interaktif haritalar, gerçek zamanlı analizler ve kapsamlı karşılaştırma araçları içeren, React tabanlı bir sosyal medya duygu analizi platformu.
 
-A React-based social media sentiment analysis platform for Turkish provinces, featuring interactive maps, real-time analytics, and comprehensive comparison tools.
+Özellikler
+İnteraktif Türkiye Haritası: Ayrıntılı analizleri görmek için illere tıklayın
 
-## Features
+Gerçek Zamanlı Duygu Analizi: Sosyal medya duygu durumunun canlı takibi
 
-- **Interactive Turkey Map**: Click on provinces to view detailed analytics
-- **Real-time Sentiment Analysis**: Live tracking of social media sentiment
-- **City Comparison**: Compare up to 3 cities side-by-side
-- **National Agenda Tracking**: Monitor nationwide trends and topics
-- **Advanced Filtering**: Filter by hashtags, sentiment, and regions
-- **Multi-platform Analytics**: Support for X (Twitter), Instagram, and Next Sosyal
+Şehir Karşılaştırması: Aynı anda 3 şehre kadar yan yana karşılaştırma
 
-## Backend Integration
+Ulusal Gündem Takibi: Ülke genelindeki trendleri ve konuları izleyin
 
-### API Endpoints Required
+Gelişmiş Filtreleme: Hashtag'lere, duygu durumuna ve bölgelere göre filtreleme
 
-The frontend is configured to work with the following backend API structure:
+Çoklu Platform Analizi: X (Twitter), Instagram ve Next Sosyal desteği
 
-#### Province Data
-```
-GET /api/provinces                    - Get all provinces with current data
-GET /api/provinces/{id}/data          - Get detailed data for specific province
-POST /api/provinces/filter            - Filter provinces by criteria
-POST /api/provinces/compare           - Get comparative data for multiple provinces
-GET /api/provinces/{id}/realtime      - Real-time updates for province
-```
+Backend Entegrasyonu
+Gerekli API Uç Noktaları
 
-#### Social Media Analytics
-```
-GET /api/social-media/city/{cityName}     - Social media data for specific city
-GET /api/social-media/national            - National social media comparison
-GET /api/social-media/platform/{platform} - Platform-specific analytics
-GET /api/social-media/trending            - Trending topics and hashtags
-```
+Frontend, aşağıdaki backend API yapısıyla çalışacak şekilde yapılandırılmıştır:
 
-#### National Agenda
-```
-GET /api/national-agenda                      - National sentiment and trending data
-GET /api/national-agenda/weekly-trends        - Weekly national trends
-GET /api/national-agenda/regional-performance - Regional performance data
-GET /api/national-agenda/insights             - National insights and findings
-GET /api/national-agenda/platform-comparison  - National platform comparison
-```
+İl Verileri
 
-#### Filter Options
-```
-GET /api/filters/options              - Available filter options (hashtags, regions, etc.)
-```
+GET /api/provinces              - Tüm illeri güncel verilerle getir
+GET /api/provinces/{id}/data      - Belirli bir il için detaylı veri getir
+POST /api/provinces/filter        - İlleri kriterlere göre filtrele
+POST /api/provinces/compare       - Birden fazla il için karşılaştırmalı veri getir
+GET /api/provinces/{id}/realtime    - İl için gerçek zamanlı güncellemeler
 
-### Backend Integration Files
+Sosyal Medya Analizi
 
-The following files contain backend integration code with axios and React Query:
+GET /api/social-media/city/{cityName}     - Belirli bir şehir için sosyal medya verisi
+GET /api/social-media/national          - Ulusal sosyal medya karşılaştırması
+GET /api/social-media/platform/{platform} - Platforma özel analizler
+GET /api/social-media/trending          - Trend konular ve hashtag'ler
 
-#### API Service Files
-- `src/services/api.ts` - Main axios configuration with interceptors
-- `src/services/provinceService.ts` - Province-related API calls
-- `src/services/socialMediaService.ts` - Social media analytics API calls  
-- `src/services/nationalAgendaService.ts` - National agenda API calls
+Ulusal Gündem
 
-#### Custom Hooks
-- `src/hooks/useBackendData.ts` - React Query hooks for data fetching with caching
+GET /api/national-agenda            - Ulusal duygu durumu ve trend verileri
+GET /api/national-agenda/weekly-trends      - Haftalık ulusal trendler
+GET /api/national-agenda/regional-performance - Bölgesel performans verileri
+GET /api/national-agenda/insights         - Ulusal içgörüler ve bulgular
+GET /api/national-agenda/platform-comparison  - Ulusal platform karşılaştırması
 
-#### Component Integration Points
-- `src/pages/Index.tsx` - Main dashboard with province data fetching
-- `src/components/TurkeyMap.tsx` - Real-time province data updates
-- `src/components/CityDetailPanel.tsx` - City analytics and real-time updates
-- `src/components/FilterInterface.tsx` - Dynamic filter options from backend
-- `src/components/ComparisonView.tsx` - Multi-city comparison data
-- `src/components/NationalAgendaPanel.tsx` - National trends and insights
-- `src/components/SocialMediaComparison.tsx` - Platform-specific analytics
+Filtreleme Seçenekleri
 
-### Configuration
+GET /api/filters/options          - Mevcut filtreleme seçenekleri (hashtag'ler, bölgeler, vb.)
 
-Update the API base URL in `src/services/api.ts`:
-```typescript
+Backend Entegrasyon Dosyaları
+
+Aşağıdaki dosyalar, axios ve React Query ile backend entegrasyon kodunu içerir:
+
+API Servis Dosyaları
+
+src/services/api.ts - Interceptor'lar ile ana axios konfigürasyonu
+
+src/services/provinceService.ts - İl bazlı API çağrıları
+
+src/services/socialMediaService.ts - Sosyal medya analiz API çağrıları
+
+src/services/nationalAgendaService.ts - Ulusal gündem API çağrıları
+
+Özel Hook'lar
+
+src/hooks/useBackendData.ts - Veri çekme ve önbelleğe alma için React Query hook'ları
+
+Bileşen Entegrasyon Noktaları
+
+src/pages/Index.tsx - İl verilerini çeken ana kontrol paneli
+
+src/components/TurkeyMap.tsx - Gerçek zamanlı il verisi güncellemeleri
+
+src/components/CityDetailPanel.tsx - Şehir analizleri ve gerçek zamanlı güncellemeler
+
+src/components/FilterInterface.tsx - Backend'den gelen dinamik filtreleme seçenekleri
+
+src/components/ComparisonView.tsx - Çoklu şehir karşılaştırma verisi
+
+src/components/NationalAgendaPanel.tsx - Ulusal trendler ve içgörüler
+
+src/components/SocialMediaComparison.tsx - Platforma özel analizler
+
+Konfigürasyon
+
+src/services/api.ts dosyasındaki API temel URL'sini güncelleyin:
+
 const API_BASE_URL = process.env.NODE_ENV === 'development' 
-  ? 'http://localhost:3001/api'  // Your local backend URL
-  : 'https://your-backend-domain.com/api';  // Production URL
-```
+  ? 'http://localhost:3001/api'  // Yerel backend URL'niz
+  : '[https://your-backend-domain.com/api](https://your-backend-domain.com/api)';  // Üretim URL'si
 
-### Real-time Updates
+Gerçek Zamanlı Güncellemeler
 
-WebSocket connections can be implemented for real-time updates:
-- Provincial sentiment changes
-- National trending topics
-- Live engagement metrics
+Gerçek zamanlı güncellemeler için WebSocket bağlantıları uygulanabilir:
 
-## Local Development
+İl duygu durumu değişiklikleri
 
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Update API endpoints in `src/services/api.ts`
-4. Start development server: `npm run dev`
-5. Start your backend server on port 3001 (or update the port in api.ts)
+Ulusal trend konular
 
-## Technologies
+Canlı etkileşim metrikleri
 
-- **Frontend**: Vite, TypeScript, React, shadcn-ui, Tailwind CSS
-- **Charts**: Recharts for data visualization
-- **HTTP Client**: Axios with React Query for API calls
-- **Routing**: React Router DOM
-- **State Management**: React hooks with React Query caching
+Yerel Geliştirme
+Depoyu klonlayın: git clone [depo_url'niz]
 
-## Project Structure
+Bağımlılıkları yükleyin: npm install
 
-```
+src/services/api.ts dosyasındaki API uç noktalarını güncelleyin
+
+Geliştirme sunucusunu başlatın: npm run dev
+
+Backend sunucunuzu 3001 portunda başlatın (veya api.ts dosyasında portu güncelleyin)
+
+Teknolojiler
+Frontend: Vite, TypeScript, React, shadcn-ui, Tailwind CSS
+
+Grafikler: Veri görselleştirme için Recharts
+
+HTTP İstemcisi: API çağrıları için Axios
+
+Yönlendirme: React Router DOM
+
+Durum Yönetimi: React Query önbellekleme ve React hook'ları ile durum yönetimi
+
+Proje Yapısı
 src/
-├── components/           # UI components
-├── services/            # Backend API services (NEW)
-├── hooks/               # Custom React Query hooks (NEW)
-├── types/               # TypeScript interfaces
-├── frontend_data/       # Mock data (to be replaced by backend)
-└── pages/              # Route components
-```
+├── components/         # UI bileşenleri
+├── services/           # Backend API servisleri (YENİ)
+├── hooks/              # Özel React Query hook'ları (YENİ)
+├── types/              # TypeScript arayüzleri
+├── frontend_data/      # Mock verisi (backend ile değiştirilecek)
+└── pages/              # Rota bileşenleri
 
-## Deployment
+Dağıtım
+Uygulama herhangi bir statik barındırma hizmetine dağıtılabilir. Backend entegrasyonu için şunlardan emin olun:
 
-The app can be deployed to any static hosting service. For backend integration, ensure:
-1. CORS is properly configured on your backend
-2. API endpoints match the expected structure
-3. Environment variables are set correctly
+Backend'inizde CORS'un doğru yapılandırıldığından
 
-## Contributing
+API uç noktalarının beklenen yapıyla eşleştiğinden
 
-1. Follow the TODO comments in the codebase for backend integration points
-2. All API calls use React Query for caching and error handling
-3. Maintain TypeScript interfaces for API responses
-4. Test with both mock data and real backend responses
+Ortam değişkenlerinin doğru ayarlandığından
+
+Katkıda Bulunma
+Backend entegrasyon noktaları için kod tabanındaki TODO yorumlarını takip edin
+
+Tüm API çağrıları önbelleğe alma ve hata yönetimi için React Query kullanır
+
+API yanıtları için TypeScript arayüzlerini koruyun
+
+Hem mock verileriyle hem de gerçek backend yanıtlarıyla test edin
+
