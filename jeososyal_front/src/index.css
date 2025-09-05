@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Geo-Sentistainability Design System - Professional BI Dashboard Theme */
+
+@layer base {
+  :root {
+    /* Core Background & Text */
+    --background: 220 25% 8%;
+    --foreground: 210 30% 98%;
+
+    /* Card System */
+    --card: 220 20% 12%;
+    --card-foreground: 210 25% 95%;
+
+    /* Interactive Elements */
+    --popover: 220 20% 15%;
+    --popover-foreground: 210 25% 95%;
+
+    /* Brand Colors - Deep Blues & Teals */
+    --primary: 195 85% 35%;
+    --primary-foreground: 210 30% 98%;
+    --primary-glow: 195 100% 50%;
+
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 210 20% 90%;
+
+    /* Muted Elements */
+    --muted: 220 15% 20%;
+    --muted-foreground: 215 15% 65%;
+
+    /* Accent - Modern Teal */
+    --accent: 180 75% 40%;
+    --accent-foreground: 210 30% 98%;
+
+    /* Status Colors for Sentiment Analysis */
+    --sentiment-positive: 142 70% 50%;
+    --sentiment-neutral: 45 85% 55%;
+    --sentiment-negative: 0 75% 55%;
+
+    /* Interactive States */
+    --hover: 195 75% 45%;
+    --active: 195 85% 25%;
+    
+    /* Borders & Inputs */
+    --border: 220 15% 25%;
+    --input: 220 15% 22%;
+    --ring: 195 85% 50%;
+
+    /* Gradients for Premium Feel */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-dashboard: linear-gradient(180deg, hsl(var(--background)), hsl(220 20% 10%));
+    --gradient-glass: linear-gradient(135deg, 
+      hsl(220 20% 15% / 0.8), 
+      hsl(195 50% 20% / 0.6));
+
+    /* Shadows & Effects */
+    --shadow-dashboard: 0 10px 40px -10px hsl(195 85% 35% / 0.3);
+    --shadow-panel: 0 20px 60px -15px hsl(220 25% 8% / 0.6);
+    --shadow-glow: 0 0 50px hsl(var(--primary-glow) / 0.4);
+
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-panel: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+    --radius: 12px;
+  }
+
+  /* Light mode */
+  .light {
+    --background: 210 30% 97%;
+    --foreground: 220 25% 8%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 8%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 8%;
+    
+    --primary: 195 85% 40%;
+    --primary-foreground: 210 30% 98%;
+    --primary-glow: 195 100% 55%;
+    
+    --secondary: 210 15% 92%;
+    --secondary-foreground: 220 25% 8%;
+    
+    --muted: 210 15% 94%;
+    --muted-foreground: 215 15% 45%;
+    
+    --accent: 180 75% 45%;
+    --accent-foreground: 210 30% 8%;
+    
+    --border: 220 15% 85%;
+    --input: 220 15% 90%;
+    --ring: 195 85% 50%;
+    
+    --gradient-dashboard: linear-gradient(180deg, hsl(var(--background)), hsl(210 30% 95%));
+    --gradient-glass: linear-gradient(135deg, 
+      hsl(0 0% 100% / 0.8), 
+      hsl(210 30% 98% / 0.6));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Professional Dashboard Utilities */
+  .dashboard-gradient {
+    background: var(--gradient-dashboard);
+  }
+
+  .glass-panel {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border));
+  }
+
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .panel-shadow {
+    box-shadow: var(--shadow-panel);
+  }
+
+  /* Map Interaction States */
+  .map-province {
+    transition: var(--transition-smooth);
+    cursor: pointer;
+  }
+
+  .map-province:hover {
+    filter: brightness(1.2);
+    stroke: hsl(var(--primary-glow));
+    stroke-width: 2;
+  }
+
+  .map-province.selected {
+    fill: hsl(var(--primary));
+    stroke: hsl(var(--primary-glow));
+    stroke-width: 3;
+  }
+
+  /* Sentiment Colors */
+  .sentiment-positive {
+    color: hsl(var(--sentiment-positive));
+  }
+  
+  .sentiment-neutral {
+    color: hsl(var(--sentiment-neutral));
+  }
+  
+  .sentiment-negative {
+    color: hsl(var(--sentiment-negative));
+  }
+
+  /* Animation Classes */
+  .slide-in-right {
+    animation: slideInRight 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .slide-out-right {
+    animation: slideOutRight 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideOutRight {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+
+  /* Professional Loading Animations */
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
+    }
+  }
+}
