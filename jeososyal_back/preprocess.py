@@ -6,7 +6,7 @@ import json
 # --- Django Setup Boilerplate (MUST BE AT THE TOP) ---
 print("Setting up Django environment...")
 # Replace 'eco_pulse_turkey_backend' if your project folder name is different
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'eco_pulse_turkey_backend.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'jeososyal_backend.settings')
 django.setup()
 print("Django environment is ready.")
 # --- End of Setup ---

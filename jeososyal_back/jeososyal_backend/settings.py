@@ -65,7 +65,7 @@ REST_FRAMEWORK = {
 CORS_ORIGIN_ALLOW_ALL = True
 
 
-ROOT_URLCONF = "eco_pulse_turkey_backend.urls"
+ROOT_URLCONF = "jeososyal_backend.urls"
 
 TEMPLATES = [
     {
@@ -82,7 +82,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "eco_pulse_turkey_backend.wsgi.application"
+WSGI_APPLICATION = "jeososyal_backend.wsgi.application"
 
 
 # Database
