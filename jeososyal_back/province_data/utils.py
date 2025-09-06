@@ -296,12 +296,13 @@ def generate_city_social(city_id):
         detail.update({"mainHashtag":mainHashtag})
         topics_list = {}
         for pltfrm in platforms:
-            for key, val in pltfrm.topics_list.items():
-                if key in topics_list.keys():
-                    itemval = topics_list[key]
-                    topics_list.update({key:itemval + val})
-            else: 
-                topics_list.update({key:val})
+            if isinstance(pltfrm.topics_list, dict):
+                for key, val in pltfrm.topics_list.items():
+                    if key in topics_list.keys():
+                        itemval = topics_list[key]
+                        topics_list.update({key:itemval + val})
+                else: 
+                    topics_list.update({key:val})
         topics_list = {k: v for k, v in sorted(topics_list.items(), key=lambda item: item[1], reverse=True)}
         maintopic = ""
         for key in topics_list.keys():

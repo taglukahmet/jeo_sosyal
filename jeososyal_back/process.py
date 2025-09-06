@@ -9,7 +9,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'jeososyal_backend.settings')
 django.setup()
 print("Django environment is ready.")
 # --- End of Setup ---
-
+from django.conf import settings
 
 # ✅ Now it is safe to import your Django models
 from province_data.models import City, DataofPlatforms, NationalDataLog
@@ -21,15 +21,15 @@ def main():
     """
     # Assuming 'settings.BASE_DIR' is what you intended for the project root
     print("\nCreating Cities...")
-    from django.conf import settings
+
     file_path = settings.BASE_DIR / 'data_province.json'
 
     with open(file_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
     for city in data:
-        province = City.objects.create(name=city.name, region = city.region)
-
+        province = City.objects.create(name=city["name"], region = city["region"])
+    
     print("\nCities created")
     file_path = settings.BASE_DIR / 'data.json'
 
@@ -39,9 +39,9 @@ def main():
     for platform in data:
         try:
             # Assuming platform['city'] is the name of the city
-            city = City.objects.get(name=platform['city'].capitalize())
+            city = City.objects.get(name=platform['city'])
             pltfrm = DataofPlatforms.objects.create(
-                name=platform['name'].capitalize(), 
+                name=platform['name'], 
                 city=city, 
                 posts=platform['posts'], 
                 hashtags_list=platform['hashtags_list'], 
