@@ -266,7 +266,7 @@ export const NationalAgendaPanel: React.FC<NationalAgendaPanelProps> = ({
                     />
                     <Line 
                       type="monotone" 
-                      dataKey="volume" 
+                      dataKey="sayı" 
                       stroke="hsl(var(--primary))" 
                       strokeWidth={2}
                       dot={{ fill: 'hsl(var(--primary))', strokeWidth: 2, r: 4 }}

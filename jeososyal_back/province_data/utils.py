@@ -62,6 +62,7 @@ def generate_city_weekly_trends(city_id):
     trend = []
     city = City.objects.get(id = city_id)
     today = timezone.localdate()
+    today = today - timedelta(days=10)
     for i in range(0,6):
         day = today - timedelta(days=i)
         platforms = DataofPlatforms.objects.filter(city = city, date=day)
@@ -85,12 +86,13 @@ def generate_city_weekly_trends(city_id):
                 day_name = "Cum"
             case 6:
                 day_name = "Cmt"
-        trend.insert(0,{"day":day_name, "volume":posts})
+        trend.insert(0,{"day":day_name, "sayı":posts})
     return trend
 
 def generate_national_weekly_trends():
     trend = []
     today = timezone.localdate()
+    today = today - timedelta(days=10)
     for i in range(0,6):
         day = today - timedelta(days=i)
         day_num = day.strftime('%w')
@@ -116,7 +118,7 @@ def generate_national_weekly_trends():
             posts = data.posts
         except NationalDataLog.DoesNotExist:
             posts=0
-        trend.insert(0,{"day":day_name, "volume":posts})
+        trend.insert(0,{"day":day_name, "sayı":posts})
     return trend
 
 def generate_regional_performance():
@@ -131,6 +133,7 @@ def generate_regional_performance():
     ]
     performance = []
     today = timezone.localdate()
+    today = today - timedelta(days=10)
     yesterday = today - timedelta(days=1)
     cities = City.objects.all()
     for region in REGIONS:
@@ -188,8 +191,8 @@ def generate_national_social():
         detail.update({"avgSentiment":avg_positive})
         detail.update({"totalPosts":total_post})
         cities = City.objects.all()
+        max_city = {"": 0}
         for city in cities:
-            max_city = {"": 0}
             post_city = 0
             pltfrms = city.platforms.filter(name = platform)
             for pltfrm in pltfrms:
@@ -220,6 +223,7 @@ def generate_weekly_social():
     PLATFORMS = {"X (Twitter)":"twitter", "Instagram":"instagram", "NSosyal":"next"}
     social = []
     today = timezone.localdate()
+    today = today - timedelta(days=10)
     for i in range(0,6):
         day = today - timedelta(days=i)
         day_num = day.strftime('%w')

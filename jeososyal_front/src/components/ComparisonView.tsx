@@ -17,7 +17,7 @@ interface CityData {
   };
   topics: Array<{ text: string; value: number }>;
   hashtags: string[];
-  weeklyTrend: Array<{ day: string; volume: number }>;
+  weeklyTrend: Array<{ day: string; sayı: number }>;
 }
 
 interface ComparisonViewProps {

@@ -38,6 +38,11 @@ class CityCompareView(APIView):
             return Response({"detail":"Something went wrong there are no cities yet"}, status=status.HTTP_404_NOT_FOUND)
         for city in cities:
             city = prepare_city(city.id)
+        for city in cities:
+            if city.hashtags_list and isinstance(city.hashtags_list, dict):
+                city.hashtags_list = {k: v for k, v in sorted(city.hashtags_list.items(), key=lambda item: item[1], reverse=True)}
+            if city.topics_list and isinstance(city.topics_list, dict):
+                city.topics_list = {k: v for k, v in sorted(city.topics_list.items(), key=lambda item: item[1], reverse=True)}
         serializer = CitySerializer(cities, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 

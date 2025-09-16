@@ -22,7 +22,7 @@ interface CityData {
   };
   topics: Array<{ text: string; value: number }>;
   hashtags: string[];
-  weeklyTrend: Array<{ day: string; volume: number }>;
+  weeklyTrend: Array<{ day: string; sayı: number }>;
 }
 
 interface CityDetailPanelProps {
@@ -192,7 +192,7 @@ export const CityDetailPanel: React.FC<CityDetailPanelProps> = ({
                     />
                     <Line 
                       type="monotone" 
-                      dataKey="volume" 
+                      dataKey="sayı" 
                       stroke="hsl(var(--primary))" 
                       strokeWidth={2}
                       dot={{ fill: 'hsl(var(--primary))', strokeWidth: 2, r: 4 }}

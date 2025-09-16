@@ -3,6 +3,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { Twitter, Instagram, Globe2 } from 'lucide-react';
 import { useSocialMediaData } from '@/hooks/useBackendData';
+import { TbSquareRoundedLetterN } from 'react-icons/tb';
+
 
 // TODO: Backend Integration - Social media comparison data
 // API Endpoint: GET /api/cities/{cityId}/social-media
@@ -117,7 +119,7 @@ export const SocialMediaComparison: React.FC<SocialMediaComparisonProps> = ({cit
                 <div className="flex items-center gap-2 mb-2">
                   {(socialMediaData == citySocial)?
                     (platform.icon === "twitter" ? <Twitter className="w-4 h-4" /> :
-                     platform.icon === "next" ? <Globe2 className="w-4 h-4" /> :
+                     platform.icon === "next" ? <TbSquareRoundedLetterN className="w-4 h-4" /> :
                      <Instagram className="w-4 h-4" />
                     ):platform.icon}
                   <span className="font-medium text-sm">{platform.platform}</span>

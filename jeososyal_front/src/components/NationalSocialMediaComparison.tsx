@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, LineChart, Line, CartesianGrid } from 'recharts';
 import { Twitter, Instagram, Globe2, TrendingUp } from 'lucide-react';
 import { useNationalPlatformComparison } from '@/hooks/useBackendData';
+import { TbSquareRoundedLetterN } from 'react-icons/tb';
 
 interface NationalSocialMediaComparisonProps {
   isVisible: boolean;
@@ -81,7 +82,7 @@ export const NationalSocialMediaComparison: React.FC<NationalSocialMediaComparis
                 <div className="flex items-center gap-2 mb-2">
                   {(nationalSocialData == nationalSocial)?
                   (platform.icon === "twitter" ? <Twitter className="w-4 h-4" /> :
-                   platform.icon === "next" ? <Globe2 className="w-4 h-4" /> :
+                   platform.icon === "next" ? <TbSquareRoundedLetterN className="w-4 h-4" /> :
                    <Instagram className="w-4 h-4" />
                    ):platform.icon}
                   <span className="font-medium text-sm">{platform.platform}</span>

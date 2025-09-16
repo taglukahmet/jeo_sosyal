@@ -55,7 +55,7 @@ export const Header: React.FC<HeaderProps> = ({
               JeoSosyal
             </h1>
             <p className="text-xs text-muted-foreground">
-              JeoPolitik analiz Platformu
+              JeoPolitik Analiz Platformu
             </p>
           </div>
         </div>

@@ -321,7 +321,7 @@ const Comparison = () => {
                               <LineChart data={cityData.weeklyTrend}>
                                 <Line 
                                   type="monotone" 
-                                  dataKey="volume" 
+                                  dataKey="sayı" 
                                   stroke={COLORS[index % COLORS.length]} 
                                   strokeWidth={2}
                                   dot={false}

@@ -10,7 +10,7 @@ const About: React.FC = () => {
   return (
     <div className="min-h-screen dashboard-gradient">
       {/* Header */}
-      <header className="glass-panel border-b border-border/50">
+      <header className="glass-panel sticky top-0 z-50 border-b border-border/50">
         <div className="container mx-auto px-6 h-16 flex items-center gap-4">
           <Button
             variant="ghost"

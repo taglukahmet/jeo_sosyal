@@ -38,7 +38,7 @@ class CitySerializer(serializers.ModelSerializer):
         if obj.topics_list and isinstance(obj.topics_list, dict):
             topic = obj.topics_list
             for key,val in topic.items():
-                topics.insert(0,{"text":key,"value":val})
+                topics.append({"text":key,"value":val})
             return topics[0:10]
         return []
     def get_sentiment(self, obj):
