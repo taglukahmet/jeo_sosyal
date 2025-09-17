@@ -7,7 +7,7 @@ const API_BASE_URL = process.env.NODE_ENV === 'development'
   : 'https://your-backend-domain.com/api';*/
 
 const api = axios.create({
-  baseURL: 'http://localhost:8000/api',
+  baseURL: "https://jeo-sosyal.onrender.com/api",
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',

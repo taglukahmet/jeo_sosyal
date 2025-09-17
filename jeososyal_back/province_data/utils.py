@@ -62,7 +62,7 @@ def generate_city_weekly_trends(city_id):
     trend = []
     city = City.objects.get(id = city_id)
     today = timezone.localdate()
-    today = today - timedelta(days=10)
+    today = today - timedelta(days=15)
     for i in range(0,6):
         day = today - timedelta(days=i)
         platforms = DataofPlatforms.objects.filter(city = city, date=day)
@@ -92,7 +92,7 @@ def generate_city_weekly_trends(city_id):
 def generate_national_weekly_trends():
     trend = []
     today = timezone.localdate()
-    today = today - timedelta(days=10)
+    today = today - timedelta(days=15)
     for i in range(0,6):
         day = today - timedelta(days=i)
         day_num = day.strftime('%w')
@@ -133,7 +133,7 @@ def generate_regional_performance():
     ]
     performance = []
     today = timezone.localdate()
-    today = today - timedelta(days=10)
+    today = today - timedelta(days=15)
     yesterday = today - timedelta(days=1)
     cities = City.objects.all()
     for region in REGIONS:
@@ -223,7 +223,7 @@ def generate_weekly_social():
     PLATFORMS = {"X (Twitter)":"twitter", "Instagram":"instagram", "NSosyal":"next"}
     social = []
     today = timezone.localdate()
-    today = today - timedelta(days=10)
+    today = today - timedelta(days=15)
     for i in range(0,6):
         day = today - timedelta(days=i)
         day_num = day.strftime('%w')

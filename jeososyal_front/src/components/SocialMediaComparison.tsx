@@ -82,7 +82,7 @@ export const SocialMediaComparison: React.FC<SocialMediaComparisonProps> = ({cit
 
   return (
     <div className="fixed right-[28rem] top-12 h-full w-80 glass-panel panel-shadow z-45 overflow-y-auto">
-      <div className="p-4 space-y-4">
+      <div className="p-4 space-y-4 mb-10">
         {/* Header */}
         <div className="pb-2 border-b border-border/50">
           <h3 className="text-lg font-semibold text-primary">
